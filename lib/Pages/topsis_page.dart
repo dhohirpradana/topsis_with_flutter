@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:topsis_tanaman_hias/Pages/criteria_page.dart';
+import 'package:topsis_tanaman_hias/Pages/kriteria_page.dart';
 
 class TopsisPage extends StatefulWidget {
   @override
