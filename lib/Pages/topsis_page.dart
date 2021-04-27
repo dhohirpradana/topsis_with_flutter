@@ -1,13 +1,13 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:topsis_tanaman_hias/Pages/criteria_page.dart';
 
-class TestPage extends StatefulWidget {
+class TopsisPage extends StatefulWidget {
   @override
-  _TestPageState createState() => _TestPageState();
+  _TopsisPageState createState() => _TopsisPageState();
 }
 
-class _TestPageState extends State<TestPage> {
+class _TopsisPageState extends State<TopsisPage> {
   List topsis = [
     {
       'a1': {
@@ -16,6 +16,7 @@ class _TestPageState extends State<TestPage> {
         'c3': 1,
         'c4': 4,
         'c5': 1,
+        'c6': 3,
       },
       'a2': {
         'c1': 5,
@@ -23,6 +24,7 @@ class _TestPageState extends State<TestPage> {
         'c3': 1,
         'c4': 3,
         'c5': 1,
+        'c6': 2,
       },
       'a3': {
         'c1': 5,
@@ -30,6 +32,7 @@ class _TestPageState extends State<TestPage> {
         'c3': 1,
         'c4': 4,
         'c5': 1,
+        'c6': 1,
       },
     }
   ];
@@ -41,6 +44,7 @@ class _TestPageState extends State<TestPage> {
       'c3': 4,
       'c4': 2,
       'c5': 5,
+      'c6': 2,
     }
   ];
 
@@ -122,7 +126,7 @@ class _TestPageState extends State<TestPage> {
         final iIndex = i + index;
         final positif = normalisasiTerbobotList[iIndex];
         solusiIdealList.add(positif);
-        i = i + 5;
+        i = i + bobot[0].length;
       } while (i < maxI);
     }
     maxMinSolusiIdeal();
@@ -161,7 +165,7 @@ class _TestPageState extends State<TestPage> {
     for (var i = 0;
         i < normalisasiTerbobotList.length;
         i = i + bobot[0].length.toInt()) {
-      for (var index = 0; index < 5; index++) {
+      for (var index = 0; index < bobot[0].length; index++) {
         //+
         final totalPositif =
             normalisasiTerbobotList[i + index] - maxList[index];
@@ -193,12 +197,10 @@ class _TestPageState extends State<TestPage> {
       final sumPositif = sqrt(totalPositifListIndex.fold(
           0, (previous, current) => previous + current));
       sqrtSumTotalPositifList.add(sumPositif);
-      // print(sqrtSumTotalPositifList);
       //-
       final sumNegatif = sqrt(totalNegatifListIndex.fold(
           0, (previous, current) => previous + current));
       sqrtSumTotalNegatifList.add(sumNegatif);
-      // print(sqrtSumTotalNegatifList);
     }
     preferensi();
   }
@@ -208,7 +210,6 @@ class _TestPageState extends State<TestPage> {
     for (var index = 0; index < topsis[0].length; index++) {
       final preferensi = sqrtSumTotalNegatifList[index] /
           (sqrtSumTotalNegatifList[index] + sqrtSumTotalPositifList[index]);
-      // print(preferensi);
       preferensiList.add(preferensi);
     }
     setState(() {
@@ -227,7 +228,7 @@ class _TestPageState extends State<TestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TOPSIS'),
+        title: Text('SPK PEMILIHAN TANAMAN HIAS (TOPSIS)'),
       ),
       body: Container(
         child: Center(
@@ -246,6 +247,14 @@ class _TestPageState extends State<TestPage> {
                   kuadrat();
                 },
                 child: Text('HITUNG'),
+              ),
+              // ignore: deprecated_member_use
+              RaisedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CriteriaPage()));
+                },
+                child: Text('TOPSIS PAGE'),
               ),
               Text('Result : '),
               Column(
