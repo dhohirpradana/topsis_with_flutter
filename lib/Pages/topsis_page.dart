@@ -45,7 +45,7 @@ class _TopsisPageState extends State<TopsisPage> {
                                 fontSize: 18, fontWeight: FontWeight.w600),
                           ),
                           Visibility(
-                              visible: (i < 2) ? false : true,
+                              visible: (topsis.length <= 1) ? false : true,
                               child: addRemoveButton(i)),
                         ],
                       ),
@@ -99,6 +99,7 @@ class _TopsisPageState extends State<TopsisPage> {
         if (2 == topsis.length) {
         } else {
           topsis.removeAt(i);
+          print(topsis);
           setState(() {});
         }
       },

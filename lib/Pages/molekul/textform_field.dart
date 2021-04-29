@@ -18,6 +18,7 @@ textFormField(index, i) => TextFormField(
           }
           return null;
         },
+        key: Key(index.toString()),
         initialValue:
             ((topsis[i]['c' + (index + 1).toString()]).toString() == '0')
                 ? ''

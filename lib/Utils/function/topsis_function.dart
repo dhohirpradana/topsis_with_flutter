@@ -18,24 +18,24 @@ kuadrat() {
   sumKuadrat();
 }
 
-int sumF;
 sumKuadrat() {
   sumKuadratList.clear();
   final increment = kuadratList.length / topsis[0].length;
   final cLength = kuadratList.length / increment;
-  // print(cLength);
   for (var i = 0; i < cLength; i++) {
+    int sumF = 0;
     for (var index = 0; index < topsis.length; index++) {
-      final sum = kuadratList[i];
       final sumKuadrat =
-          (index >= 1) ? sum + kuadratList[i + cLength.toInt()] : sum
+          (index == 0) ? 0 : sumF + kuadratList[i + index * cLength.toInt()]
           // +
           // kuadratList[i + 2 * cLength.toInt()]
           ;
       sumF = sumKuadrat;
     }
-    sumKuadratList.add(sumF);
+    final sumFFinal = sumF + kuadratList[i];
+    sumKuadratList.add(sumFFinal);
   }
+  print(sumKuadratList);
   normalisasi();
 }
 
@@ -88,16 +88,12 @@ maxMinSolusiIdeal() {
   for (var index = 0;
       index < normalisasiTerbobotList.length;
       index = index + length.toInt()) {
-    final max = [
-      solusiIdealList[index],
-      solusiIdealList[index + 1],
-      // solusiIdealList[index + 2]
-    ].reduce((curr, next) => curr > next ? curr : next);
-    final min = [
-      solusiIdealList[index],
-      solusiIdealList[index + 1],
-      // solusiIdealList[index + 2]
-    ].reduce((curr, next) => curr < next ? curr : next);
+    final solusiIdealF = [];
+    for (var i = 0; i < topsis.length; i++) {
+      solusiIdealF.add(solusiIdealList[index + i]);
+    }
+    final max = solusiIdealF.reduce((curr, next) => curr > next ? curr : next);
+    final min = solusiIdealF.reduce((curr, next) => curr < next ? curr : next);
     maxList.add(max);
     minList.add(min);
   }
@@ -136,20 +132,21 @@ total() {
       //+
       final totalIndexPositif = totalPositifList[index + i];
       totalPositifListIndex.add(totalIndexPositif);
+
       //-
       final totalIndexNegatif = totalNegatifList[index + i];
       totalNegatifListIndex.add(totalIndexNegatif);
     }
+
     //+
     final sumPositif = sqrt(totalPositifListIndex.fold(
         0, (previous, current) => previous + current));
     sqrtSumTotalPositifList.add(sumPositif);
-    // print(sqrtSumTotalPositifList);
+
     //-
     final sumNegatif = sqrt(totalNegatifListIndex.fold(
         0, (previous, current) => previous + current));
     sqrtSumTotalNegatifList.add(sumNegatif);
-    // print(sqrtSumTotalNegatifList);
   }
   preferensi();
 }
