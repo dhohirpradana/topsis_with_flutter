@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   sqflite: ^2.0.0+3
   path_provider: ^2.0.1
+  flushbar: ^1.10.4
 
 dev_dependencies:
   flutter_test:

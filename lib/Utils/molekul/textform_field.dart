@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:topsis_tanaman_hias/Pages/atom/hint_text.dart';
-import 'package:topsis_tanaman_hias/Pages/atom/label_text.dart';
 import 'package:topsis_tanaman_hias/Utils/List/topsis_list.dart';
+import 'package:topsis_tanaman_hias/Utils/atom/hint_text.dart';
+import 'package:topsis_tanaman_hias/Utils/atom/label_text.dart';
 
 textFormField(index, i) => TextFormField(
         inputFormatters: [

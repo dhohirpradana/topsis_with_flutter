@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:topsis_tanaman_hias/Utils/function/show_result_dialog.dart';
 import 'package:topsis_tanaman_hias/Utils/function/topsis_function.dart';
 import 'package:topsis_tanaman_hias/Utils/List/topsis_list.dart';
-import 'molekul/textform_field.dart';
+import 'package:topsis_tanaman_hias/Utils/molekul/snackbar.dart';
+import 'package:topsis_tanaman_hias/Utils/molekul/textform_field.dart';
 
 class TopsisPage extends StatefulWidget {
   @override
@@ -97,6 +98,7 @@ class _TopsisPageState extends State<TopsisPage> {
   Widget addRemoveButton(i) => IconButton(
       onPressed: () {
         if (2 == topsis.length) {
+          showFlushBar(context);
         } else {
           topsis.removeAt(i);
           print(topsis);
