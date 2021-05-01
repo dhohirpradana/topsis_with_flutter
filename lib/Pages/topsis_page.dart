@@ -42,7 +42,7 @@ class _TopsisPageState extends State<TopsisPage> {
                       gradient: LinearGradient(colors: [
                         Color(0xffb1453b),
                         Color(0xffD50000),
-                        Color(0xffFF5722)
+                        Color(0xffDD2C00)
                       ], stops: [
                         0.0,
                         0.5,

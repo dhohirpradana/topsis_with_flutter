@@ -12,8 +12,8 @@ Widget alternatifTitle(context, child, i) => Wrap(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Alternatif ' + (i + 1).toString(),
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                'ALTERNATIF ' + (i + 1).toString(),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
               ),
               Visibility(
                   visible: (topsis.length <= 1) ? false : true, child: child),

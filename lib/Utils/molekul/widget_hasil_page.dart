@@ -7,8 +7,11 @@ Widget widgetKriteriaHasilPage(context) => Column(
           margin: EdgeInsets.only(left: 10, top: 10),
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Text('Kriteria',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            child: Text('KRITERIA',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                )),
           ),
         ),
         ListTile(
@@ -55,8 +58,8 @@ Widget widgetDataAnalisaHasilPage() => Column(
           margin: EdgeInsets.only(left: 10, top: 15),
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Text('Data Analisa',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            child: Text('DATA ANALISA',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           ),
         ),
         ListTile(
@@ -95,8 +98,8 @@ Widget widgetNormalisasiHasilPage() => Column(
           margin: EdgeInsets.only(left: 10, top: 15),
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Text('1. Normalisasi',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            child: Text('1. NORMALISASI',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           ),
         ),
         ListTile(
@@ -144,8 +147,8 @@ Widget widgetNormalisasiTerbobotHasilPage() => Column(
           margin: EdgeInsets.only(left: 10, top: 15),
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Text('2. Normalisasi Terbobot',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            child: Text('2. NORMALISASI TERBOBOT',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           ),
         ),
         ListTile(
@@ -196,8 +199,8 @@ Widget widgetSolusiIdealHasilPage() => Column(
           margin: EdgeInsets.only(left: 10, top: 15),
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Text('3. Solusi Ideal Positif dan Negatif',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            child: Text('3. SOLUSI IDEAL POSITIF & NEGATIF',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           ),
         ),
         ListTile(
@@ -245,8 +248,8 @@ Widget widgetTotalHasilPage() => Column(
           margin: EdgeInsets.only(left: 10, top: 15),
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Text('4. Total',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            child: Text('4. TOTAL',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           ),
         ),
         ListTile(
