@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:topsis_tanaman_hias/Utils/function/show_result_dialog.dart';
-import 'package:topsis_tanaman_hias/Utils/function/topsis_function.dart';
-import 'package:topsis_tanaman_hias/Utils/List/topsis_list.dart';
-import 'package:topsis_tanaman_hias/Utils/molekul/snackbar.dart';
-import 'package:topsis_tanaman_hias/Utils/molekul/textform_field.dart';
+import 'package:topsis_tanaman_hias/Pages/alternatif_page.dart';
+import 'package:topsis_tanaman_hias/Pages/kriteria_page.dart';
+import 'package:topsis_tanaman_hias/Pages/hasil_page.dart';
 
 class TopsisPage extends StatefulWidget {
   @override
@@ -19,94 +17,69 @@ class _TopsisPageState extends State<TopsisPage> {
     super.initState();
   }
 
-  final _formKey = GlobalKey<FormState>();
+  int page = 2;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xffb1453b),
-        title: Text('SPK PEMILIHAN TANAMAN HOYA CARNOSA (TOPSIS)'),
-      ),
-      body: Container(
-        margin: EdgeInsets.only(left: 10, right: 10),
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
+      body: Stack(
+        children: [
+          (page == 2)
+              ? AlternatifPage()
+              : (page == 1)
+                  ? KriteriaPage()
+                  : HasilPage(),
+          Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                for (var i = 0; i < topsis.length; i++)
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            'Alternatif ' + (i + 1).toString(),
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600),
-                          ),
-                          Visibility(
-                              visible: (topsis.length <= 1) ? false : true,
-                              child: addRemoveButton(i)),
-                        ],
-                      ),
-                      for (var index = 0; index < bobot[0].length; index++)
-                        textFormField(index, i),
-                      (topsis.length == i + 1)
-                          ? SizedBox(
-                              width: double.infinity,
-                              // ignore: deprecated_member_use
-                              child: RaisedButton(
-                                  textColor: Colors.white,
-                                  color: Color(0xff5d8d5d),
-                                  child: Text('Tambah Alternatif'),
-                                  onPressed: () {
-                                    addTopsis(topsis, i);
-                                    setState(() {});
-                                  }),
-                            )
-                          : SizedBox(),
-                    ],
-                  ),
-                SizedBox(
-                  height: 5,
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child:
-                      // ignore: deprecated_member_use
-                      RaisedButton(
-                    textColor: Colors.white,
-                    color: Color(0xffb1453b),
-                    onPressed: () async {
-                      if (_formKey.currentState.validate()) {
-                        await kuadrat();
-                        resultDialog(context, preferensiList);
-                      }
-                    },
-                    child: Text('Hitung'),
-                  ),
-                ),
+                Container(
+                    margin: EdgeInsets.only(bottom: 5),
+                    height: 50,
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      gradient: LinearGradient(
+                          colors: [Color(0xffb1453b), Colors.red[500]],
+                          stops: [0.0, 0.9]),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        menuIconButton(Icons.tag, 1),
+                        menuIconButton(Icons.home, 2),
+                        menuIconButton(Icons.assignment, 3)
+                      ],
+                    ))
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }
 
-  Widget addRemoveButton(i) => IconButton(
-      onPressed: () {
-        if (2 == topsis.length) {
-          showFlushBar(context);
-        } else {
-          topsis.removeAt(i);
-          print(topsis);
-          setState(() {});
-        }
-      },
-      icon: Icon(
-        Icons.delete,
-        color: Colors.red,
-      ));
+  Widget menuIconButton(icon, p) => IconButton(
+        onPressed: () {
+          setState(() {
+            page = p;
+          });
+        },
+        icon: (page == p)
+            ? Container(
+                // margin: EdgeInsets.all(20),
+                padding: EdgeInsets.all(1),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(width: 2, color: Colors.white)),
+                child: Icon(
+                  icon,
+                  color: Colors.white,
+                ),
+              )
+            : Icon(
+                icon,
+                color: Colors.white,
+              ),
+      );
 }

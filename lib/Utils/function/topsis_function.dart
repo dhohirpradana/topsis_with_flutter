@@ -35,7 +35,6 @@ sumKuadrat() {
     final sumFFinal = sumF + kuadratList[i];
     sumKuadratList.add(sumFFinal);
   }
-  print(sumKuadratList);
   normalisasi();
 }
 
@@ -156,7 +155,17 @@ preferensi() {
   for (var index = 0; index < topsis.length; index++) {
     final preferensi = sqrtSumTotalNegatifList[index] /
         (sqrtSumTotalNegatifList[index] + sqrtSumTotalPositifList[index]);
-    // print(preferensi);
     preferensiList.add(preferensi);
   }
+  rakingList.clear();
+  for (var i = 0; i < preferensiList.length; i++) {
+    final decToInt = preferensiList[i] * 10;
+    rakingList.add(decToInt);
+  }
+}
+
+raking() {
+  // var ascending = rakingList..sort();
+  // var descending = ascending.reversed;
+  // print(descending);
 }
