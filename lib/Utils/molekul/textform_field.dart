@@ -25,8 +25,9 @@ textFormField(index, i) => Container(
               ((topsis[i]['c' + (index + 1).toString()]).toString() == '0')
                   ? ''
                   : (topsis[i]['c' + (index + 1).toString()]).toString(),
-          onChanged: (value) =>
-              topsis[i]['c' + (index + 1).toString()] = int.parse(value),
+          onChanged: (value) => (value == '')
+              ? topsis[i]['c' + (index + 1).toString()] = 0
+              : topsis[i]['c' + (index + 1).toString()] = int.parse(value),
           decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.red, width: 1.0),
@@ -59,8 +60,9 @@ textFormFieldKriteria(index) => Container(
               ((bobot[0]['c' + (index + 1).toString()]).toString() == '0')
                   ? ''
                   : (bobot[0]['c' + (index + 1).toString()]).toString(),
-          onChanged: (value) =>
-              bobot[0]['c' + (index + 1).toString()] = int.parse(value),
+          onChanged: (value) => (value == '')
+              ? bobot[0]['c' + (index + 1).toString()] = 0
+              : bobot[0]['c' + (index + 1).toString()] = int.parse(value),
           decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.red, width: 1.0),
