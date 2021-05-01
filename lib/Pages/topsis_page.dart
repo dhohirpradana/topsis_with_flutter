@@ -39,9 +39,15 @@ class _TopsisPageState extends State<TopsisPage> {
                     width: MediaQuery.of(context).size.width / 1.5,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      gradient: LinearGradient(
-                          colors: [Color(0xffb1453b), Colors.red[500]],
-                          stops: [0.0, 0.9]),
+                      gradient: LinearGradient(colors: [
+                        Color(0xffb1453b),
+                        Color(0xffD50000),
+                        Color(0xffFF5722)
+                      ], stops: [
+                        0.0,
+                        0.5,
+                        0.8
+                      ]),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

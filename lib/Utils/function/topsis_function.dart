@@ -23,16 +23,16 @@ sumKuadrat() {
   final increment = kuadratList.length / topsis[0].length;
   final cLength = kuadratList.length / increment;
   for (var i = 0; i < cLength; i++) {
-    int sumF = 0;
+    num? sumF = 0;
     for (var index = 0; index < topsis.length; index++) {
-      final sumKuadrat =
-          (index == 0) ? 0 : sumF + kuadratList[i + index * cLength.toInt()]
+      final num? sumKuadrat =
+          (index == 0) ? 0 : sumF! + kuadratList[i + index * cLength.toInt()]
           // +
           // kuadratList[i + 2 * cLength.toInt()]
           ;
       sumF = sumKuadrat;
     }
-    final sumFFinal = sumF + kuadratList[i];
+    final sumFFinal = sumF! + kuadratList[i];
     sumKuadratList.add(sumFFinal);
   }
   normalisasi();
@@ -52,13 +52,13 @@ normalisasi() {
 
 normalisasiTerbobot() {
   normalisasiTerbobotList.clear();
-  for (var index = 0;
-      index < normalisasiList.length;
+  for (num? index = 0;
+      index! < normalisasiList.length;
       index = index + bobot[0].length) {
     for (var i = 0; i < bobot[0].length; i++) {
       final inx = i + 1;
       final normalisasiTerbobot =
-          normalisasiList[index + i] * bobot[0]['c$inx'];
+          normalisasiList[index.toInt() + i] * bobot[0]['c$inx'];
       normalisasiTerbobotList.add(normalisasiTerbobot);
     }
   }
@@ -106,34 +106,36 @@ total() {
   //-
   totalNegatifList.clear();
   sqrtSumTotalNegatifList.clear();
-  for (var i = 0;
-      i < normalisasiTerbobotList.length;
+  for (num? i = 0;
+      i! < normalisasiTerbobotList.length;
       i = i + bobot[0].length.toInt()) {
     for (var index = 0; index < 5; index++) {
       //+
-      final totalPositif = normalisasiTerbobotList[i + index] - maxList[index];
+      final totalPositif =
+          normalisasiTerbobotList[i.toInt() + index] - maxList[index];
       final kuadratPositif = totalPositif * totalPositif;
       totalPositifList.add(kuadratPositif);
 
       //-
-      final totalNegatif = normalisasiTerbobotList[i + index] - minList[index];
+      final totalNegatif =
+          normalisasiTerbobotList[i.toInt() + index] - minList[index];
       final kuadratNegatif = totalNegatif * totalNegatif;
       totalNegatifList.add(kuadratNegatif);
     }
   }
 
-  for (var i = 0;
-      i < normalisasiTerbobotList.length;
-      i = i + bobot[0].length.toInt()) {
+  for (num? i = 0;
+      i! < normalisasiTerbobotList.length;
+      i = i.toInt() + bobot[0].length.toInt()) {
     totalPositifListIndex.clear();
     totalNegatifListIndex.clear();
-    for (var index = 0; index < bobot[0].length.toInt(); index++) {
+    for (num? index = 0; index! < bobot[0].length.toInt(); index++) {
       //+
-      final totalIndexPositif = totalPositifList[index + i];
+      final totalIndexPositif = totalPositifList[index.toInt() + i.toInt()];
       totalPositifListIndex.add(totalIndexPositif);
 
       //-
-      final totalIndexNegatif = totalNegatifList[index + i];
+      final totalIndexNegatif = totalNegatifList[index.toInt() + i.toInt()];
       totalNegatifListIndex.add(totalIndexNegatif);
     }
 

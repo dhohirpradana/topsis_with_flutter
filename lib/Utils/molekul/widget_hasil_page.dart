@@ -18,8 +18,10 @@ Widget widgetKriteriaHasilPage(context) => Column(
             ),
             title: Container(
                 padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width / 3),
-                child: Text("BOBOT"))),
+                    left: MediaQuery.of(context).size.width / 2.5),
+                child: Text("Bobot",
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)))),
         for (var i = 0; i < bobot[0].length; i++)
           ListTile(
             onTap: null,
