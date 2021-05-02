@@ -19,8 +19,15 @@ class _HasilPageState extends State<HasilPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffb1453b),
         title: Text('HASIL PERHITUNGAN'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[Color(0xffb1453b), Colors.purple]),
+          ),
+        ),
       ),
       body: Container(
         margin: EdgeInsets.only(left: 0),

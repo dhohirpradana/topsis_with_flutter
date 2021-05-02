@@ -16,8 +16,15 @@ class _AlternatifPageState extends State<AlternatifPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffb1453b),
         title: Text('ALTERNATIF'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[Color(0xffb1453b), Colors.purple]),
+          ),
+        ),
       ),
       body: Container(
         child: SingleChildScrollView(

@@ -18,8 +18,15 @@ class _KriteriaPageState extends State<KriteriaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xffb1453b),
           title: Text('KRITERIA'),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xffb1453b), Colors.purple]),
+            ),
+          ),
         ),
         body: Container(
             child: SingleChildScrollView(
