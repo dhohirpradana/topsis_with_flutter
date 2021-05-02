@@ -1,6 +1,17 @@
 import 'dart:math';
 
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:topsis_tanaman_hias/Utils/List/topsis_list.dart';
+
+setC(i, value) async {
+  final prefs = await SharedPreferences.getInstance();
+  prefs.setInt('c$i', value);
+}
+
+Future<int> getC(i) async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getInt("c$i") ?? 1;
+}
 
 void addTopsis(topsis, i) {
   topsis.insert(i + 1, {'c1': 0, 'c2': 0, 'c3': 0, 'c4': 0, 'c5': 0});
@@ -67,14 +78,14 @@ normalisasiTerbobot() {
 
 solusiIdeal() {
   solusiIdealList.clear();
-  for (var index = 0; index < bobot[0].length; index++) {
-    var i = 0;
+  for (int index = 0; index < bobot[0].length; index++) {
+    num i = 0;
     var maxI = normalisasiTerbobotList.length;
     do {
-      final iIndex = i + index;
+      final int iIndex = i.toInt() + index;
       final positif = normalisasiTerbobotList[iIndex];
       solusiIdealList.add(positif);
-      i = i + 5;
+      i = i + bobot[0].length;
     } while (i < maxI);
   }
   maxMinSolusiIdeal();
@@ -109,7 +120,7 @@ total() {
   for (num? i = 0;
       i! < normalisasiTerbobotList.length;
       i = i + bobot[0].length.toInt()) {
-    for (var index = 0; index < 5; index++) {
+    for (var index = 0; index < bobot[0].length; index++) {
       //+
       final totalPositif =
           normalisasiTerbobotList[i.toInt() + index] - maxList[index];

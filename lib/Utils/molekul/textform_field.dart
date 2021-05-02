@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:topsis_tanaman_hias/Utils/List/topsis_list.dart';
 import 'package:topsis_tanaman_hias/Utils/atom/hint_text.dart';
 import 'package:topsis_tanaman_hias/Utils/atom/label_text.dart';
+import 'package:topsis_tanaman_hias/Utils/function/topsis_function.dart';
 
 textFormField(index, i) => Container(
       margin: EdgeInsets.only(left: 5, right: 5, top: 7),
@@ -60,9 +61,15 @@ textFormFieldKriteria(index) => Container(
               ((bobot[0]['c' + (index + 1).toString()]).toString() == '0')
                   ? ''
                   : (bobot[0]['c' + (index + 1).toString()]).toString(),
-          onChanged: (value) => (value == '')
-              ? bobot[0]['c' + (index + 1).toString()] = 0
-              : bobot[0]['c' + (index + 1).toString()] = int.parse(value),
+          onChanged: (value) {
+            if (value == '') {
+              // bobot[0]['c' + (index + 1).toString()] = 0;
+              setC(index + 1, 0);
+            } else {
+              // bobot[0]['c' + (index + 1).toString()] = int.parse(value);
+              setC(index + 1, int.parse(value));
+            }
+          },
           decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.red, width: 1.0),
