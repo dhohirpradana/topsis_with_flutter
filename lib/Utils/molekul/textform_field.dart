@@ -63,11 +63,11 @@ textFormFieldKriteria(index) => Container(
                   : (bobot[0]['c' + (index + 1).toString()]).toString(),
           onChanged: (value) {
             if (value == '') {
-              // bobot[0]['c' + (index + 1).toString()] = 0;
+              bobot[0]['c' + (index + 1).toString()] = 0;
               setC(index + 1, 0);
             } else {
-              // bobot[0]['c' + (index + 1).toString()] = int.parse(value);
-              setC(index + 1, int.parse(value));
+              bobot[0]['c' + (index + 1).toString()] = int.parse(value);
+              // setC(index + 1, int.parse(value));
             }
           },
           decoration: InputDecoration(
