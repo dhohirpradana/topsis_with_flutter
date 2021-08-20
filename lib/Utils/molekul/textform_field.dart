@@ -9,7 +9,7 @@ textFormField(index, i) => Container(
       margin: EdgeInsets.only(left: 5, right: 5, top: 7),
       child: TextFormField(
           inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
+            LengthLimitingTextInputFormatter(2),
           ],
           keyboardType: TextInputType.number,
           validator: (value) {
