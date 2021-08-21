@@ -1,12 +1,12 @@
 hintText(index) => (index == 0)
     ? '1 - 50 cm'
     : (index == 1)
-        ? '1 - 10 poin'
+        ? '1 - 4 poin'
         : (index == 2)
-            ? '1 - 10 poin'
+            ? '1 - 4 poin'
             : (index == 3)
-                ? '1 - 10 poin'
-                : '1 - 10 poin';
+                ? '1 - 4 poin'
+                : '1 - 4 poin';
 
 hintTextKriteria(index) => (index == 0)
     ? 'Bobot 1 - 5'
