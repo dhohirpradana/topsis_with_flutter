@@ -153,12 +153,15 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                     ),
                   ),
                   Positioned(
-                      left: 10,
+                      left: 8,
                       child: Container(
                           padding:
                               EdgeInsets.only(bottom: 0, left: 5, right: 5),
                           color: Colors.white,
-                          child: Text(labelText(index)))),
+                          child: Text(
+                            labelText(index),
+                            style: TextStyle(color: Colors.black54),
+                          ))),
                 ],
               ));
   }
