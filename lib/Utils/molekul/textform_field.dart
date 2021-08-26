@@ -106,7 +106,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                       borderRadius: BorderRadius.circular(3),
                       color: Colors.white,
                       border: Border.all(
-                        color: Colors.black,
+                        color: Colors.black54,
                         width: 1,
                       ),
                     ),
@@ -156,7 +156,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                       left: 10,
                       child: Container(
                           padding:
-                              EdgeInsets.only(bottom: 0, left: 0, right: 10),
+                              EdgeInsets.only(bottom: 0, left: 5, right: 5),
                           color: Colors.white,
                           child: Text(labelText(index)))),
                 ],
