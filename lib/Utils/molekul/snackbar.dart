@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 void showFlushBar(BuildContext context) {
+  ScaffoldMessenger.of(context).hideCurrentSnackBar();
   ScaffoldMessenger.of(context).showSnackBar(
     const SnackBar(
       duration: Duration(milliseconds: 1500),

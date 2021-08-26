@@ -1,5 +1,5 @@
 hintText(index) => (index == 0)
-    ? '1 - 50 cm'
+    ? '1 - 30 cm'
     : (index == 1)
         ? '1 - 4 poin'
         : (index == 2)
