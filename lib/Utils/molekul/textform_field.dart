@@ -98,56 +98,68 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                     ),
                     hintText: hintText(index),
                     labelText: labelText(index)))
-            : Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(3),
-                  color: Colors.white,
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                ),
-                height: 60,
-                width: MediaQuery.of(context).size.width - 10,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Theme(
-                    data: Theme.of(context)
-                        .copyWith(canvasColor: Colors.green[50]),
-                    child: DropdownButton(
-                      elevation: 0,
-                      hint: _dropDownValue == null
-                          ? Text(labelText(index))
-                          : Text(
-                              _dropDownValue,
-                              style: TextStyle(color: Colors.black),
-                            ),
-                      isExpanded: true,
-                      iconSize: 30.0,
-                      style: TextStyle(color: Colors.black),
-                      items: params.map(
-                        (val) {
-                          return DropdownMenuItem<String>(
-                            value: val,
-                            child: Text(val),
-                          );
-                        },
-                      ).toList(),
-                      onChanged: (val) {
-                        FocusScope.of(context).requestFocus(new FocusNode());
-                        setState(
-                          () {
-                            topsis[i]['c' + (index + 1).toString()] =
-                                params.indexOf(val.toString()) + 1;
-                            print(topsis[i]['c' + (index + 1).toString()]);
-                            _dropDownValue = val.toString();
+            : Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(3),
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                    ),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width - 10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Theme(
+                        data: Theme.of(context)
+                            .copyWith(canvasColor: Colors.green[50]),
+                        child: DropdownButton(
+                          elevation: 0,
+                          hint: _dropDownValue == null
+                              ? Text(labelText(index))
+                              : Text(
+                                  _dropDownValue,
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                          isExpanded: true,
+                          iconSize: 30.0,
+                          style: TextStyle(color: Colors.black),
+                          items: params.map(
+                            (val) {
+                              return DropdownMenuItem<String>(
+                                value: val,
+                                child: Text(val),
+                              );
+                            },
+                          ).toList(),
+                          onChanged: (val) {
+                            FocusScope.of(context)
+                                .requestFocus(new FocusNode());
+                            setState(
+                              () {
+                                topsis[i]['c' + (index + 1).toString()] =
+                                    params.indexOf(val.toString()) + 1;
+                                print(topsis[i]['c' + (index + 1).toString()]);
+                                _dropDownValue = val.toString();
+                              },
+                            );
                           },
-                        );
-                      },
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  Positioned(
+                      left: 10,
+                      child: Container(
+                          padding:
+                              EdgeInsets.only(bottom: 0, left: 0, right: 10),
+                          color: Colors.white,
+                          child: Text(labelText(index)))),
+                ],
               ));
   }
 }
