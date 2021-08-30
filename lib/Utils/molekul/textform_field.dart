@@ -53,8 +53,12 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
         : null;
 
     String? _dropDownTinggiValue = (topsis[i]['c1'.toString()] != 0)
-        ? topsis[i]['c1'.toString()].toString()
+        ? tinggi[topsis[i]['c1'.toString()] - 1]
         : null;
+
+    // String? _dropDownTinggiValue = (topsis[i]['c1'.toString()] != 0)
+    //     ? topsis[i]['c1'.toString()].toString()
+    //     : null;
 
     return Container(
       margin: EdgeInsets.only(left: 5, right: 5, top: 7),
