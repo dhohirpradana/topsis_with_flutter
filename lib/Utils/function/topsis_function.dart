@@ -170,15 +170,14 @@ preferensi() {
         (sqrtSumTotalNegatifList[index] + sqrtSumTotalPositifList[index]);
     preferensiList.add(preferensi);
   }
-  rakingList.clear();
-  for (var i = 0; i < preferensiList.length; i++) {
-    final decToInt = preferensiList[i] * 10;
-    rakingList.add(decToInt);
-  }
+  raking();
 }
 
 raking() {
-  // var ascending = rakingList..sort();
-  // var descending = ascending.reversed;
-  // print(descending);
+  finalRank.clear();
+  for (var i = 0; i < preferensiList.length; i++) {
+    finalRank.add({"index": i + 1, "value": preferensiList[i]});
+  }
+  print(finalRank);
+  print(finalRank..sort((b, a) => a['value'].compareTo(b['value'])));
 }

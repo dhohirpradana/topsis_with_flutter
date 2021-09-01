@@ -12,7 +12,7 @@ List totalNegatifListIndex = [];
 List sqrtSumTotalPositifList = [];
 List sqrtSumTotalNegatifList = [];
 List preferensiList = [];
-List rakingList = [];
+List finalRank = [];
 
 List topsis = [
   {

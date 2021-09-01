@@ -248,7 +248,7 @@ Widget widgetTotalHasilPage() => Column(
           margin: EdgeInsets.only(left: 10, top: 15),
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Text('4. TOTAL',
+            child: Text('4. Nilai Preferensi (RANK)',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           ),
         ),
@@ -273,7 +273,7 @@ Widget widgetTotalHasilPage() => Column(
         for (var index = 0; index < topsis.length; index++)
           ListTile(
             onTap: null,
-            leading: Text('A' + (index + 1).toString(),
+            leading: Text('A' + finalRank[index]["index"].toString(),
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             title: Row(
               children: <Widget>[
@@ -302,11 +302,11 @@ Widget widgetTotalHasilPage() => Column(
                 Expanded(
                     child: Container(
                   color: Colors.yellow[200],
-                  child: (Text(preferensiList[index].toString().substring(
+                  child: (Text(finalRank[index]["value"].toString().substring(
                       0,
-                      (preferensiList[index].toString().length > 6)
+                      (finalRank[index]["value"].toString().length > 6)
                           ? 6
-                          : preferensiList[index].toString().length))),
+                          : finalRank[index]["value"].toString().length))),
                 ))
               ],
             ),
